@@ -2,12 +2,6 @@ use tokio::time::{sleep, Duration};
 use configs::{conf, Conf, ConfName};
 use eyre::eyre; // You may need to add `use eyre::eyre;` if not already present
 
-pub mod configs;
-pub mod provider;
-pub mod rss_transcodizer;
-pub mod server;
-pub mod transcoder;
-
 /// Establishes a connection to Redis, retrying several times on failure.
 pub async fn get_redis_client() -> Result<redis::aio::MultiplexedConnection, eyre::Error> {
     const MAX_RETRIES: u32 = 5;
